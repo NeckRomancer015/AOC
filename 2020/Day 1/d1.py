@@ -1,5 +1,3 @@
-
-
 def p1(listOfExpenses: list) -> int:
     for i in range(0, len(listOfExpenses)-1):
         for j in range(i+1, len(listOfExpenses)):
