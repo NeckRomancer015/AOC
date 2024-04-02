@@ -29,7 +29,7 @@ def reachesBag(currentBag)->bool:
                 return True
         return False
 
-def p1()->bool:
+def p1()->None:
     count=0
     for k,v in mapOfBags.items():
         if k =='shiny gold':
