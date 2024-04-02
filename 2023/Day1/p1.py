@@ -218,6 +218,6 @@ def p2V4(file):
 
 
 print(sum)
-with open(r'input.txt') as file:
+with open('2023\Day1\input.txt') as file:
     print(p2V4(file))
     
