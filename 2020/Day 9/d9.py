@@ -24,11 +24,31 @@ def p1(Input : List[int], preamble : int) -> int:
     
     return -1
 
+
+def p2(targetNum :int, Input: List[int])->int:
+    currentIndex = 0
+    contigiousList = []
+    contigiousList.append(Input[currentIndex])
+    maxIndex = len(Input)
+    while True:
+        if sum(contigiousList) == targetNum:
+            print("Min: ",min(contigiousList),' Max: ',max(contigiousList))
+            return min(contigiousList)+max(contigiousList)
+        if sum(contigiousList) > targetNum:
+            del contigiousList[0]
+            continue
+        if sum(contigiousList) < targetNum:
+            currentIndex+=1
+            contigiousList.append(Input[currentIndex])
+        if maxIndex == currentIndex:
+            print("Part 2 Failed")
+            return -1
+
 def main():
     Input = getInput(r"2020\Day 9\input.txt")
     p1Answer = p1(Input=Input, preamble=25)
     print("Part 1 answer is: ", p1Answer) if p1Answer !=-1 else print("Failed")
-
+    print("Part 2 answer is: ",p2(targetNum=p1Answer, Input=Input))
 
 if __name__ == '__main__':
     main()
