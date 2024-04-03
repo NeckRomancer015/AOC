@@ -13,7 +13,6 @@ def Travelling(grid :list, right=3, down=1)->int:
     
     return numOfTrees
 
-
 def getInput(InputPath:str)->list:
     grid=[]
     with open(InputPath) as file:
@@ -35,9 +34,7 @@ def main():
     p1Answer = Travelling(grid=grid)
     print("Part 1 answer is : ", p1Answer)
     print("Part 2 answer is : ", p2(grid=grid,p1Answer=p1Answer))
-
-
-
+    
 
 if __name__ == '__main__':
     main()
