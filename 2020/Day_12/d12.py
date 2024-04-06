@@ -12,7 +12,7 @@ class ship():
         return "N = {N}, S = {S}, E= {E}, W= {W} , D={D}".format(N=self.N, S=self.S, E=self.E, W=self.W, D=self.direction)
 
     def __repr__(self) -> str:
-        return "D: {d}, NEWS: {N}{E}{W}{S}".format(N=self.N, S=self.S, E=self.E, W=self.W, D=self.direction)
+        return "D: {d}, NEWS: {N} {E} {W} {S}".format(N=self.N, S=self.S, E=self.E, W=self.W, D=self.direction)
 
     def getManhattan(self)->int:
         x= abs(self.E-self.W)
