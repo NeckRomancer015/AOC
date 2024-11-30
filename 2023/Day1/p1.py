@@ -12,15 +12,15 @@ def getN(n):
 def p1(file):
     num =0
     for l in file:
-        list = re.findall('\d',l)
+        list = re.findall(r'\d',l)
         num+=int(list[0]+''+list[-1])
-    return num
+    print(num)
 
 
 def p2(file):
     num=0
     for l in file:
-        list = re.findall("one|\d|two|three|four|five|six|seven|eight|nine", l)
+        list = re.findall(r"one|\d|two|three|four|five|six|seven|eight|nine", l)
 
         list2 = [list[0],list[-1]]
         num+=int(getN(list2[0])+''+getN(list2[-1]))
@@ -51,7 +51,7 @@ def p2V2(file):
 def p2V3(file:str):
     num=0
     for line in file:
-        list1  = re.findall('\d', line)
+        list1  = re.findall(r'\d', line)
         list2 = re.findall("one|two|three|four|five|six|seven|eight|nine", line)
         list3=[]
         if len(list1) and len(list2):
@@ -67,8 +67,6 @@ def p2V3(file:str):
             num+=int(getN(str(list3[0])) +""+ getN(str(list3[-1])))
     return num
             
-
-
 def p2V4(file):
     num=0
     for line in file:
@@ -213,11 +211,29 @@ def p2V4(file):
         print(num)
     return num
 
-
             
 
 
-print(sum)
-with open('2023\Day1\input.txt') as file:
-    print(p2V4(file))
+def p2V5(file):
+    import sys
+    sys.path.append(r"C:\Users\user-pc\Documents\PythonProj\AOC")
+    import common_functions
+    num=0
+    for line in file:
+        num1,num2 = common_functions.get_first_and_last_number(line.strip())
+        if num2 == None:
+            num2=num1
+        num+=int(num1+num2)
+    print(num)
+
+
+
+def main():
+    file = open(r'2023\Day1\input.txt','r')
+    p2V5(file)
+    file = open(r'2023\Day1\input.txt','r')
+    p1(file)
     
+
+if __name__ == '__main__':
+    main()
