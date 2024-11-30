@@ -25,7 +25,7 @@ def ValidP1(rule : PasswordRule, pw:str) ->bool:
 
 
 def createRule(rule:str)->PasswordRule:    
-    nums= re.findall('\d+', rule)
+    nums= re.findall(r'\d+', rule)
     min,max= nums[0],nums[1]
     char = rule[-1]
     return PasswordRule(min=min, max=max, char=char)
