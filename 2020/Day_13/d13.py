@@ -26,7 +26,7 @@ def getInput(FilePath):
     with open(FilePath) as file:
         tmStamp=int(file.readline().strip())
         AllBusses = file.readline().strip()
-        busID = re.findall('\d+',AllBusses)
+        busID = re.findall(r'\d+',AllBusses)
         busID = [int(num) for num in busID]
     return busID,tmStamp,AllBusses
     

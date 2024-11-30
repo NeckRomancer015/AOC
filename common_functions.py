@@ -99,12 +99,12 @@ def read_file_line_by_line(file_path:str):
 
     Example:
         >>> for line in read_file_line_by_line("example.txt"):
-        >>>     print(line.strip())
+        >>>     print(line)
     """
     try:
         with open(file_path, 'r') as file:
             for line in file:
-                yield line
+                yield line.strip()
     except FileNotFoundError:
         raise FileNotFoundError(f"The file at {file_path} was not found.")
     except IOError as e:
