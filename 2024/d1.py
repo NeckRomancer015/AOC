@@ -7,7 +7,7 @@ def p1(f):
     l1 = []
     l2 = []
     for line in common_functions.read_file_line_by_line(file_path=f):
-        val = common_functions.get_numbers_as_list(line)
+        val = common_functions.retrieve_numbers.get_numbers_as_list(line)
         l1.append(int(val[0]))
         l2.append(int(val[1]))
     
@@ -26,7 +26,7 @@ def p2(f):
     l1 = []
     l2 = dict()
     for line in common_functions.read_file_line_by_line(file_path=f):
-        val = common_functions.get_numbers_as_list(line)
+        val = common_functions.retrieve_numbers.get_numbers_as_list(line)
         l1.append(int(val[0]))
         if int(val[1]) in l2.keys():
             l2[int(val[1])]+=1
