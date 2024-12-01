@@ -280,8 +280,8 @@ class math_functions:
         
         Example
         -------
-        >>> get_diagonal_points
-
+        >>> get_diagonal_points(0,3,3,0)
+        [(0, 3), (1, 2), (2, 1), (3, 0)]
         """
         if do_validation:
             if abs(x2 - x1) != abs(y2 - y1):
@@ -301,4 +301,4 @@ class math_functions:
 
 
 if __name__ == '__main__':
-    print(math_functions.manhattan_distance(0,1,1,2))
+    print(math_functions.get_diagonal_points(0,3,3,0))
