@@ -198,3 +198,7 @@ def lcm(a, b):
     15
     """
     return a * b // math.gcd(a, b)
+
+
+if __name__ == '__main__':
+    print(get_numbers_as_list('as5a57ff6'))
