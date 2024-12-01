@@ -265,6 +265,40 @@ class math_functions:
         """
         return abs(x1 - x2) + abs(y1 - y2)
 
+    def get_diagonal_points(x1, y1,x2,y2, do_validation = False):
+        """
+        Get all integer points between two diagonal coordinates (inclusive).
+
+        Parameters
+        -----------
+        x1,y1,x2,y2
+
+        Returns
+        --------
+        list[tuple]
+            List of points between p1 and p2, including both endpoints.
+        
+        Example
+        -------
+        >>> get_diagonal_points
+
+        """
+        if do_validation:
+            if abs(x2 - x1) != abs(y2 - y1):
+                raise ValueError("The points are not diagonal.")
+            
+        dx = 1 if x2 > x1 else -1
+        dy = 1 if y2 > y1 else -1
+
+        points = []
+        x, y = x1, y1
+        while (x, y) != (x2, y2):
+            points.append((x, y))
+            x += dx
+            y += dy
+        points.append((x2, y2))
+        return points
+
 
 if __name__ == '__main__':
     print(math_functions.manhattan_distance(0,1,1,2))

@@ -31,7 +31,7 @@ def return_full_coords(x1,y1,x2,y2)->list[(int,int)]:
 def p1(f):
     vents = dict()
     for line in common_functions.read_file_line_by_line(f):
-        val = common_functions.get_numbers_as_list(line)
+        val = common_functions.retrieve_numbers.get_numbers_as_list(line)
         x1,y1,x2,y2 = int(val[0]),int(val[1]),int(val[2]),int(val[3])
         if x1!=x2 and y1!=y2:
             continue
@@ -64,7 +64,7 @@ def p2(f):
     ans = 0
     vents = dict()
     for line in common_functions.read_file_line_by_line(f):
-        val = common_functions.get_numbers_as_list(line)        
+        val = common_functions.retrieve_numbers.get_numbers_as_list(line)        
         x1,y1,x2,y2 = int(val[0]),int(val[1]),int(val[2]),int(val[3])
         if x1==x2 or y1==y2:
             full_coords = return_full_coords(x1,y1,x2,y2)
@@ -74,17 +74,8 @@ def p2(f):
                 else:
                     vents[coord]=1
         elif common_functions.math_functions.is_points_diagonal(x1 = x1,y1=y1,x2=x2,y2=y2):
-            full_coords= []
-            diff_x = 1 if x2>x1 else -1
-            diff_y = 1 if y2>y1 else -1
-
-            tx,ty = x1,y1
-            while (tx,ty)!=(x2,y2):
-                full_coords.append((tx,ty))
-                tx+=diff_x
-                ty+=diff_y
-            full_coords.append((x2,y2))
-        
+            full_coords = common_functions.math_functions.get_diagonal_points(x1,y1,x2,y2)
+            
             for coord in full_coords:
                 if coord in vents.keys():
                     vents[coord]+=1
