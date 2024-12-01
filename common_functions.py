@@ -110,6 +110,29 @@ class retrieve_numbers:
         """
         return re.findall(r'\d+',line)
 
+    def get_numbers_as_int_in_list(line:str)->list[int]:
+        """
+        Returns all the numbers in a string.
+
+        Parameters
+        ----------
+        line : str
+            The line containing numbers and other characters.
+        
+
+        Returns
+        -------
+        list[int]
+            A list containing all the numbers stored as ints in the order they appeared.
+
+        Examples
+        --------
+        >>> get_numbers_as_int_in_list('as5a5ff6')
+        [5, 5, 6]
+        """
+        return [int(x) for x in re.findall(r'\d+',line)]
+
+
     def get_first_and_last_numbers_in_string_as_list(line:str)->list[str]:
         """
         Returns the first and last numbers in a list as a list
