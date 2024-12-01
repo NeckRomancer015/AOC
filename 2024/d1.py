@@ -20,10 +20,9 @@ def p1(f):
     
     print(ans)
 
-import time
+
 
 def p2(f):
-    start = time.time()
     l1 = []
     l2 = dict()
     for line in common_functions.read_file_line_by_line(file_path=f):
@@ -38,10 +37,8 @@ def p2(f):
     for i in range(0,len(l1)):
         if l1[i] in l2.keys():
             ans+= l1[i]*l2[l1[i]]
-    end = time.time()
     print(ans)
 
-    print(end-start)
 
 
 def main():
