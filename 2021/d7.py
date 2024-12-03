@@ -37,7 +37,7 @@ def p2(f):
         steps=0
         for crab in crabs:
             steps=abs(crab-i)
-            current_fuel += sum([step for step in range(1,steps+1)])
+            current_fuel += (steps*(steps+1)//2)
         if lowest_fuel==None or lowest_fuel>current_fuel:
             lowest_fuel=current_fuel
 
