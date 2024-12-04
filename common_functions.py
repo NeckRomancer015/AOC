@@ -322,6 +322,20 @@ class math_functions:
         points.append((x2, y2))
         return points
 
+    def get_neighbors(x, y):
+        offsets = [(-1, -1), (-1, 0), (-1, 1),
+                (0, -1),          (0, 1),
+                (1, -1), (1, 0), (1, 1)]
+        # Compute neighbors
+        neighbors = [(x + dx, y + dy) for dx, dy in offsets]
+        return neighbors
+
+    def get_diagonal_neighbors(x, y):
+        # Define relative positions for diagonal neighbors
+        offsets = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
+        # Compute diagonal neighbors
+        neighbors = [(x + dx, y + dy) for dx, dy in offsets]
+        return neighbors
 
 if __name__ == '__main__':
     print(math_functions.get_diagonal_points(0,3,3,0))
