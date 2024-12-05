@@ -15,9 +15,9 @@ def p1(before :defaultdict(list[int]), updates :list[int]):
             if not isValid:
                 break
             if current_list[update_index] in before.keys():
-                for before_index in before[current_list[update_index]]:
-                    if before_index in current_list:
-                        if update_index<current_list.index(before_index) :
+                for before_index in before[current_list[update_index]]: # checks each page that it must be before
+                    if before_index in current_list: # checks if that page is in the updates
+                        if update_index<current_list.index(before_index) : # compares the indexes
                             isValid = False
                             break
         if isValid:
@@ -35,14 +35,15 @@ def p2(before :defaultdict(list[int]), updates :list[int]):
         while True:            
             isValid = True
             for update_index in range(0,len(current_list)):#goes through the current list                
-                if current_list[update_index] in before.keys():
-                    for before_index in before[current_list[update_index]]:
-                        if before_index in current_list:                            
-                            index2 = current_list.index(before_index)
-                            if update_index<index2 :
+                if current_list[update_index] in before.keys(): #safety
+                    before_list = before[current_list[update_index]]
+                    for before_index in range(0,len(before_list)): # checks each page that it must be before
+                        if before_list[before_index] in current_list: # checks if that page is in the updatess                           
+                            index2 = current_list.index(before_list[before_index]) # keep index as variable, makes program faster
+                            if update_index<index2 :# compares the indexes
                                 current_list[update_index],current_list[index2] = current_list[index2],current_list[update_index]
                                 isValid = False
-                                isChanged=True
+                                isChanged=True # This makes sure we check this list further down
                                 break
             if isValid:
                     break
