@@ -336,6 +336,17 @@ class math_functions:
         # Compute diagonal neighbors
         neighbors = [(x + dx, y + dy) for dx, dy in offsets]
         return neighbors
-
+    
+    def find_factors_optimized(number:int):
+        """
+        Finds and returns the factors of a given number using an optimized approach.
+        """
+        factors = set()  # Use a set to automatically handle duplicates and maintain uniqueness
+        for i in range(1, int(math.sqrt(number)) + 1):
+            if number % i == 0:
+                factors.add(i)
+                factors.add(number // i)
+        return sorted(list(factors)) 
+    
 if __name__ == '__main__':
-    print(math_functions.get_diagonal_points(0,3,3,0))
+    print(math_functions.find_factors_optimized(10))
