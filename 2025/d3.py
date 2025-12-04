@@ -26,7 +26,29 @@ def p1():
     print(f"Part 1 : {count}")
 
 def p2():
-    pass
+    total_count=0
+    for line in read_file_line_by_line(r"C:\Users\user-pc\Documents\PythonProj\AOC\ex.txt"):
+        battery_pack = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0,11:0,12:0}
+
+        digits_to_keep = 12
+        digits_to_remove = len(line) - digits_to_keep
+        
+        
+        stack = []
+        for digit in line:
+            # While stack has elements, we still have digits to remove, 
+            # and the current digit is greater than the last digit in the stack:
+            while stack and digits_to_remove > 0 and stack[-1] < digit:
+                stack.pop()
+                digits_to_remove -= 1
+            stack.append(digit)
+        
+        # If we still need to remove digits (can happen if numbers were ascending)
+        # trim from the end to the required length
+        final_sequence = "".join(stack[:digits_to_keep])
+        
+        total_count += int(final_sequence)
+    print(f"Part 2:  {total_count}")
             
                     
 

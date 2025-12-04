@@ -328,6 +328,9 @@ class math_functions:
                 (1, -1), (1, 0), (1, 1)]
         # Compute neighbors
         neighbors = [(x + dx, y + dy) for dx, dy in offsets]
+
+        #Use the below to check if the coords are valid in a grid
+        # 0<=x<len(grid) and 0<=y<len(grid[r])
         return neighbors
 
     def get_diagonal_neighbors(x, y):
